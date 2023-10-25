@@ -37,11 +37,16 @@
           panorama1.addEventListener( 'progress', onProgress );
 
           var lookAtPositions = [
-            new THREE.Vector3(5000.00, -722.62, 321.76)
+            new THREE.Vector3(5000.00, 240.91, 152.65),
+            new THREE.Vector3(5000.00, -1028.75, 5.17)
           ];
 
           panorama1.addEventListener( 'load', function(){
             viewer.tweenControlCenter( lookAtPositions[0], 0 );
+          } );
+
+          panorama2.addEventListener( 'load', function(){
+            viewer.tweenControlCenter( lookAtPositions[1], 0 );
           } );
 
           viewer = new PANOLENS.Viewer({
@@ -61,6 +66,7 @@
           viewer.OrbitControls.noZoom = true;
         
           viewer.add( panorama1 );
+          viewer.add( panorama2 );
 
       }
       
