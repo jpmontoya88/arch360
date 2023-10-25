@@ -19,12 +19,13 @@
 
     <script>
 
-      var panorama1, progressElement;
+      var panorama1, panorama2, progressElement;
 
       function init(){
 
           //Vistas
           panorama1 = new PANOLENS.ImagePanorama( 'assets/R1A.jpg' );
+          panorama2 = new PANOLENS.ImagePanorama( 'assets/R2A.jpg' );
 
           agregaInfospots();
 
@@ -65,7 +66,7 @@
       
       function agregaLinksPanoramas(){
           //Entrada
-         // panorama1.link( panorama2, new THREE.Vector3(5000.00,-3458.17,635.010), 600, PANOLENS.DataImage.Arriba );
+          panorama1.link( panorama2, new THREE.Vector3(5000.00, -3313.81, 2297.40), 600, PANOLENS.DataImage.Arriba );
       }
 
 
@@ -74,7 +75,7 @@
           var punto;
 
           punto = new PANOLENS.Infospot(200, PANOLENS.DataImage.TouchPoint, true);
-          punto.position.set( 941.71, -2644.68, 5000.00 );
+          punto.position.set( 5000.00, 240.91, 152.65  );
           //punto.addHoverElement( document.getElementById( 'YES' ), 250 );
           //clickSpot( punto, "absolute", panorama1);  
           panorama1.add( punto );
