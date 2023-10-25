@@ -23,11 +23,15 @@
 
       function init(){
 
+          //Vistas
           panorama1 = new PANOLENS.ImagePanorama( 'assets/1.jpg' );
 
           agregaInfospots();
 
           agregaLinksPanoramas();
+
+          //Carga
+          progressElement = document.querySelector( '#progress' );
 
           panorama1.addEventListener( 'progress', onProgress );
 
@@ -74,6 +78,21 @@
           //punto.addHoverElement( document.getElementById( 'YES' ), 250 );
           //clickSpot( punto, "absolute", panorama1);  
           panorama1.add( punto );
+
+      }
+
+      //LOADER TOP
+      
+
+      function onProgress ( event ) {
+
+        var progress = event.progress.loaded / event.progress.total * 100;
+        progressElement.style.width = progress + '%';
+
+        if ( progress === 100 ) {
+          //progressElement.classList.add( 'finish' );
+          setTimeout(function(){ progressElement.style.width = 0; }, 1000);
+        }
 
       }
 
