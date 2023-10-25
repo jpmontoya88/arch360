@@ -19,63 +19,65 @@
 
     <script>
 
-        function init(){
+      var panorama1;
 
-            var panorama1;
+      function init(){
 
-            panorama1 = new PANOLENS.ImagePanorama( 'assets/1.jpg' );
-
-            agregaInfospots();
-
-            agregaLinksPanoramas();
-
-            panorama1.addEventListener( 'progress', onProgress );
-
-            var lookAtPositions = [
-              new THREE.Vector3(5000.00, -722.62, 321.76)
-            ];
-
-            panorama1.addEventListener( 'load', function(){
-              viewer.tweenControlCenter( lookAtPositions[0], 0 );
-            } );
-
-            viewer = new PANOLENS.Viewer({
-                container: document.getElementById('renderer'),        // A DOM Element container
-                controlBar: true,             // Vsibility of bottom control bar
-                controlButtons: [],            // Buttons array in the control bar. Default to ['fullscreen', 'setting', 'video']
-                autoHideControlBar: false,        // Auto hide control bar
-                autoHideInfospot: false,            // Auto hide infospots
-                horizontalView: false,            // Allow only horizontal camera control
-                cameraFov: 60,                // Camera field of view in degree
-                reverseDragging: false,            // Reverse orbit control direction
-                viewIndicator: false,            // Adds an angle view indicator in upper left corner
-                indicatorSize: 60,            // Size of View Indicator
-                output: 'console'            // Whether and where to output infospot position. Could be 'console' or 'overlay'
-            });
-
-            viewer.OrbitControls.noZoom = true;
           
-            viewer.add( panorama1 );
 
-        }
+          panorama1 = new PANOLENS.ImagePanorama( 'assets/1.jpg' );
+
+          agregaInfospots();
+
+          agregaLinksPanoramas();
+
+          panorama1.addEventListener( 'progress', onProgress );
+
+          var lookAtPositions = [
+            new THREE.Vector3(5000.00, -722.62, 321.76)
+          ];
+
+          panorama1.addEventListener( 'load', function(){
+            viewer.tweenControlCenter( lookAtPositions[0], 0 );
+          } );
+
+          viewer = new PANOLENS.Viewer({
+              container: document.getElementById('renderer'),        // A DOM Element container
+              controlBar: true,             // Vsibility of bottom control bar
+              controlButtons: [],            // Buttons array in the control bar. Default to ['fullscreen', 'setting', 'video']
+              autoHideControlBar: false,        // Auto hide control bar
+              autoHideInfospot: false,            // Auto hide infospots
+              horizontalView: false,            // Allow only horizontal camera control
+              cameraFov: 60,                // Camera field of view in degree
+              reverseDragging: false,            // Reverse orbit control direction
+              viewIndicator: false,            // Adds an angle view indicator in upper left corner
+              indicatorSize: 60,            // Size of View Indicator
+              output: 'console'            // Whether and where to output infospot position. Could be 'console' or 'overlay'
+          });
+
+          viewer.OrbitControls.noZoom = true;
         
-        function agregaLinksPanoramas(){
-            //Entrada
-            panorama1.link( panorama2, new THREE.Vector3(5000.00,-3458.17,635.010), 600, PANOLENS.DataImage.Arriba );
-        }
+          viewer.add( panorama1 );
+
+      }
+      
+      function agregaLinksPanoramas(){
+          //Entrada
+          panorama1.link( panorama2, new THREE.Vector3(5000.00,-3458.17,635.010), 600, PANOLENS.DataImage.Arriba );
+      }
 
 
-        function agregaInfospots(){
+      function agregaInfospots(){
 
-            var punto;
+          var punto;
 
-            punto = new PANOLENS.Infospot(200, PANOLENS.DataImage.TouchPoint, true);
-            punto.position.set( 941.71, -2644.68, 5000.00 );
-            //punto.addHoverElement( document.getElementById( 'YES' ), 250 );
-            //clickSpot( punto, "absolute", panorama1);  
-            panorama1.add( punto );
+          punto = new PANOLENS.Infospot(200, PANOLENS.DataImage.TouchPoint, true);
+          punto.position.set( 941.71, -2644.68, 5000.00 );
+          //punto.addHoverElement( document.getElementById( 'YES' ), 250 );
+          //clickSpot( punto, "absolute", panorama1);  
+          panorama1.add( punto );
 
-        }
+      }
 
     </script>
 
